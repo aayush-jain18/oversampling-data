@@ -3,9 +3,9 @@ pipeline {
      	// Clean workspace before doing anything
     agent any
     stages {
-        stage('Stage 0: Clone') {
-            git url: Globals.GitRepo
-        }
+        //stage('Stage 0: Clone') {
+            //git url: Globals.GitRepo
+        //}
         stage('Stage 1: Clean') {
             posh 'Invoke-Build Clean'
         }
