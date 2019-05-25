@@ -1,0 +1,48 @@
+INPUT:
+  input_path: &input_path !!python/object/apply:os.path.join ['.', 'tests', 'testdata']
+  # input_path: &input_path .\tests\testdata\
+  sql: 'select * from income_level_from_census'
+  db: &db 'sqlite:///'
+  drop_cols: ['index']
+  # using input_path as variable so all input folder values are linked
+  input_db: &input_db !!python/object/apply:os.path.join [*input_path, 'income_level_from_census.db']
+  engine: !!python/object/apply:os.path.join [*db, *input_db]
+
+OUTPUT:
+  output_path: &output_path !!python/object/apply:os.path.join ['.', 'tests', 'reports']
+  log_file: !!python/object/apply:os.path.join [*output_path, 'log.out']
+  db_metadata: !!python/object/apply:os.path.join [*output_path, 'db_metadata.xlsx']
+  corr_heatmap: !!python/object/apply:os.path.join [*output_path, 'heatmap.png']
+  corr_pair_plot: !!python/object/apply:os.path.join [*output_path, 'pair_plot.png']
+  summary_excel: !!python/object/apply:os.path.join [*output_path, 'summary.xlsx']
+  # synthetic data outputs
+  synth_corr_heatmap: !!python/object/apply:os.path.join [*output_path, 'synth_heatmap.png']
+  synth_corr_pair_plot: !!python/object/apply:os.path.join [*output_path, 'synth_pair_plot.png']
+  synth_summary_excel: !!python/object/apply:os.path.join [*output_path, 'synth_summary.xlsx']
+  # clustering outputs
+  dendrogram: !!python/object/apply:os.path.join [*output_path, 'dendrogram.png']
+  cluster: !!python/object/apply:os.path.join [*output_path, 'cluster.png']
+  synth_dendrogram: !!python/object/apply:os.path.join [*output_path, 'synth_dendrogram.png']
+  synth_cluster: !!python/object/apply:os.path.join [*output_path, 'synth_cluster.png']
+
+CLUSTER:
+  X: ['capital.loss', 'hours.per.week']
+
+SMOTE:
+  # list the index of all the categorical variable here
+  index_cat_col: {'age': 'int64',
+                   'workclass': 'category',
+                   'fnlwgt': 'int64',
+                   'education': 'category',
+                   'marital.status': 'category',
+                   'occupation': 'category',
+                   'relationship': 'category',
+                   'race': 'category',
+                   'sex': 'category',
+                   'capital.gain': 'int64',
+                   'capital.loss': 'int64',
+                   'hours.per.week': 'int64',
+                   'native.country': 'category',
+                   'income': 'category'}
+  # list all the column headers that need to be excluded
+  
