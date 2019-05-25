@@ -23,7 +23,7 @@ pipeline {
         stage('Archive'){
             steps{
                 // This step should not normally be used in your script. Consult the inline help for details.
-                archiveArtifacts artifacts: '.\\tests\\reports\\*', caseSensitive: false, defaultExcludes: false
+                archiveArtifacts artifacts: 'tests\\reports\\*', caseSensitive: false, defaultExcludes: false
             }
         }
     }   
