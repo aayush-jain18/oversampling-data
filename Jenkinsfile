@@ -26,5 +26,10 @@ pipeline {
                 archiveArtifacts artifacts: 'tests\\reports\\*', caseSensitive: false, defaultExcludes: false
             }
         }
+        stage('Clean Workspace'){
+             steps{
+                  cleanWs()
+             }
+        }
     }   
 }
