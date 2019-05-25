@@ -1,0 +1,88 @@
+2019-05-25 14:47:37,282 - INFO - main: Start Time: 2019-05-25 14:47:37.272133
+2019-05-25 14:47:37,282 - INFO - main: Present Working Directory: D:\projects\synthetic-data-generation
+2019-05-25 14:47:37,288 - INFO - main: Generating DataFrame from sql, executing query select * from income_level_from_census; on db sqlite:///.\tests\testdata\income_level_from_census.db
+2019-05-25 14:47:37,752 - WARNING - read_sql: Dropping columns ['index'] from DataFrame
+2019-05-25 14:47:37,836 - INFO - main: DB metadata excel output: D:\projects\synthetic-data-generation\tests\reports\db_metadata.xlsx
+2019-05-25 14:47:37,836 - INFO - kmeans_cluster: using ['capital.loss', 'hours.per.week'] columns to transform cluster.
+2019-05-25 14:47:40,999 - INFO - kmeans_cluster: Elbow curve for cluster: [5291957160.091274, 173148020.44825506, 90394610.17155407, 55649342.22636486, 34050203.07981994, 22106444.54107972, 18335477.439356867, 15005577.624978634, 12679814.01484324, 10864485.002302585]
+2019-05-25 14:47:40,999 - INFO - kmeans_cluster: 5 number of clusters to form as well as the number of centroids to generate 
+2019-05-25 14:47:42,191 - INFO - kmeans_cluster: Cluster info:
+               age  workclass         fnlwgt  education  education.num  ...  capital.gain  capital.loss  hours.per.week  native.country    income
+cluster                                                                 ...                                                                      
+0        38.434659   3.865295  189976.605446  10.283861      10.037466  ...   1129.436204      0.408523       40.297573       36.719036  0.227565
+1        42.261997   4.002594  185974.438392  10.653696      11.465629  ...      0.000000   1925.261997       44.966278       37.002594  0.743191
+2        37.231405   3.785124  190202.469008  10.512397      10.095041  ...      0.000000   1579.890496       40.216942       36.402893  0.115702
+3        48.113537   4.113537  174920.545852  10.611354      11.288210  ...      0.000000   2380.742358       44.812227       36.318777  0.615721
+4        60.777778   3.111111  186569.111111   9.888889       9.111111  ...      0.000000   3974.888889       35.888889       39.000000  0.111111
+
+[5 rows x 15 columns]
+2019-05-25 14:47:42,252 - INFO - custom_smote: Performing Smote operation on the DataFrame
+2019-05-25 14:50:44,728 - INFO - custom_smote: Creating DataFrame from synthetic results, and casting Input DataFrame column names and dtypes
+2019-05-25 14:51:10,009 - INFO - kmeans_cluster: using ['capital.loss', 'hours.per.week'] columns to transform cluster.
+2019-05-25 14:51:25,182 - INFO - kmeans_cluster: Elbow curve for cluster: [15340730703.00996, 439359868.3447709, 248024933.2997706, 156794569.47632375, 111431361.55041672, 70990164.56506662, 58355897.7267558, 47286073.93974641, 39521183.35075067, 34273438.91540492]
+2019-05-25 14:51:25,182 - INFO - kmeans_cluster: 5 number of clusters to form as well as the number of centroids to generate 
+2019-05-25 14:51:29,157 - INFO - kmeans_cluster: Cluster info:
+Empty DataFrame
+Columns: [age, workclass, fnlwgt, education, education.num, marital.status, occupation, relationship, race, sex, capital.gain, capital.loss, hours.per.week, native.country, income]
+Index: []
+2019-05-25 14:51:29,218 - INFO - main: Statistics summary of input DataFrame:
+                age        fnlwgt  education.num  capital.gain  capital.loss  hours.per.week
+count  32561.000000  3.256100e+04   32561.000000  32561.000000  32561.000000    32561.000000
+mean      38.581647  1.897784e+05      10.080679   1077.648844     87.303830       40.437456
+std       13.640433  1.055500e+05       2.572720   7385.292085    402.960219       12.347429
+min       17.000000  1.228500e+04       1.000000      0.000000      0.000000        1.000000
+25%       28.000000  1.178270e+05       9.000000      0.000000      0.000000       40.000000
+50%       37.000000  1.783560e+05      10.000000      0.000000      0.000000       40.000000
+75%       48.000000  2.370510e+05      12.000000      0.000000      0.000000       45.000000
+max       90.000000  1.484705e+06      16.000000  99999.000000   4356.000000       99.000000
+mode      36.000000  1.230110e+05       9.000000      0.000000      0.000000       40.000000
+2019-05-25 14:51:30,274 - INFO - main: Correlation heatmap output: D:\projects\synthetic-data-generation\tests\reports\heatmap.png
+2019-05-25 14:51:33,613 - INFO - main: Correlation pair plot output: D:\projects\synthetic-data-generation\tests\reports\pair_plot.png
+2019-05-25 14:51:33,671 - INFO - save_to_excel: Storing dataframes {'Description':                 age        fnlwgt  education.num  capital.gain  capital.loss  hours.per.week
+count  32561.000000  3.256100e+04   32561.000000  32561.000000  32561.000000    32561.000000
+mean      38.581647  1.897784e+05      10.080679   1077.648844     87.303830       40.437456
+std       13.640433  1.055500e+05       2.572720   7385.292085    402.960219       12.347429
+min       17.000000  1.228500e+04       1.000000      0.000000      0.000000        1.000000
+25%       28.000000  1.178270e+05       9.000000      0.000000      0.000000       40.000000
+50%       37.000000  1.783560e+05      10.000000      0.000000      0.000000       40.000000
+75%       48.000000  2.370510e+05      12.000000      0.000000      0.000000       45.000000
+max       90.000000  1.484705e+06      16.000000  99999.000000   4356.000000       99.000000
+mode      36.000000  1.230110e+05       9.000000      0.000000      0.000000       40.000000, 'Correlation':                      age    fnlwgt  education.num  capital.gain  capital.loss  hours.per.week
+age             1.000000 -0.076646       0.036527      0.077674      0.057775        0.068756
+fnlwgt         -0.076646  1.000000      -0.043195      0.000432     -0.010252       -0.018768
+education.num   0.036527 -0.043195       1.000000      0.122630      0.079923        0.148123
+capital.gain    0.077674  0.000432       0.122630      1.000000     -0.031615        0.078409
+capital.loss    0.057775 -0.010252       0.079923     -0.031615      1.000000        0.054256
+hours.per.week  0.068756 -0.018768       0.148123      0.078409      0.054256        1.000000} and images {'Pair Plot': '.\\tests\\reports\\pair_plot.png', 'Heatmap': '.\\tests\\reports\\heatmap.png', 'Cluster': '.\\tests\\reports\\cluster.png'} at .\tests\reports\summary.xlsx
+2019-05-25 14:51:33,873 - INFO - main: Statistics summary excel output: D:\projects\synthetic-data-generation\tests\reports\summary.xlsx
+2019-05-25 14:51:33,936 - INFO - main: Statistics summary of Synthetic generated DataFrame:
+                age        fnlwgt  education.num  capital.gain  capital.loss  hours.per.week
+count  97683.000000  9.768300e+04   97683.000000  97683.000000  97683.000000    97683.000000
+mean      38.004126  1.900812e+05       9.826991   1073.886152     85.269105       40.261407
+std       12.179466  1.059338e+05       2.275830   7401.075904    396.150981       10.586416
+min       17.000000  1.228500e+04       1.000000      0.000000      0.000000        1.000000
+25%       29.000000  1.177790e+05       9.000000      0.000000      0.000000       38.000000
+50%       37.000000  1.784720e+05      10.000000      0.000000      0.000000       40.000000
+75%       46.000000  2.377350e+05      11.000000      0.000000      0.000000       45.000000
+max       90.000000  1.484705e+06      16.000000  99999.000000   4356.000000       99.000000
+mode      36.000000  1.230110e+05       9.000000      0.000000      0.000000       40.000000
+2019-05-25 14:51:34,929 - INFO - main: Correlation heatmap output: D:\projects\synthetic-data-generation\tests\reports\synth_heatmap.png
+2019-05-25 14:51:38,390 - INFO - main: Correlation heatmap output: D:\projects\synthetic-data-generation\tests\reports\synth_pair_plot.png
+2019-05-25 14:51:38,479 - INFO - save_to_excel: Storing dataframes {'Description':                 age        fnlwgt  education.num  capital.gain  capital.loss  hours.per.week
+count  97683.000000  9.768300e+04   97683.000000  97683.000000  97683.000000    97683.000000
+mean      38.004126  1.900812e+05       9.826991   1073.886152     85.269105       40.261407
+std       12.179466  1.059338e+05       2.275830   7401.075904    396.150981       10.586416
+min       17.000000  1.228500e+04       1.000000      0.000000      0.000000        1.000000
+25%       29.000000  1.177790e+05       9.000000      0.000000      0.000000       38.000000
+50%       37.000000  1.784720e+05      10.000000      0.000000      0.000000       40.000000
+75%       46.000000  2.377350e+05      11.000000      0.000000      0.000000       45.000000
+max       90.000000  1.484705e+06      16.000000  99999.000000   4356.000000       99.000000
+mode      36.000000  1.230110e+05       9.000000      0.000000      0.000000       40.000000, 'Correlation':                      age    fnlwgt  education.num  capital.gain  capital.loss  hours.per.week
+age             1.000000 -0.080302       0.049605      0.087094      0.066566        0.085685
+fnlwgt         -0.080302  1.000000      -0.054214     -0.000801     -0.012765       -0.024428
+education.num   0.049605 -0.054214       1.000000      0.137089      0.088031        0.155231
+capital.gain    0.087094 -0.000801       0.137089      1.000000     -0.031232        0.088006
+capital.loss    0.066566 -0.012765       0.088031     -0.031232      1.000000        0.060711
+hours.per.week  0.085685 -0.024428       0.155231      0.088006      0.060711        1.000000} and images {'Pair Plot': '.\\tests\\reports\\synth_pair_plot.png', 'Heatmap': '.\\tests\\reports\\synth_heatmap.png', 'Cluster': '.\\tests\\reports\\synth_cluster.png'} at .\tests\reports\synth_summary.xlsx
+2019-05-25 14:51:38,602 - INFO - main: Statistics summary excel output: D:\projects\synthetic-data-generation\tests\reports\synth_summary.xlsx
+2019-05-25 14:51:38,603 - INFO - main: Total Time Taken: 0:04:01.330622
