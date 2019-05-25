@@ -1,21 +1,30 @@
+
 pipeline {
+     	// Clean workspace before doing anything
     agent any
     stages {
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
+        stage('Stage 0: Clone') {
+            git url: Globals.GitRepo
         }
-        //stage('Install requirements') {
+        stage('Stage 1: Clean') {
+            posh 'Invoke-Build Clean'
+        }
+        //stage('Stage 2: Dependencies') {
             //steps {
                 // //install all requirements listed in requirements.txt
                 //bat "pip install -r requirements.txt"
             //}
         //}
-        stage('run') {
+        stage('Stage 3: Run') {
             steps {
                 bat "python synthetic-data-generation"
             }
         }
-    }
+        stage('Stage 4: Archive'){
+            steps{
+                // This step should not normally be used in your script. Consult the inline help for details.
+                archiveArtifacts artifacts: '.\\tests\\reports\', onlyIfSuccessful: true
+            }
+        }
+    }   
 }
