@@ -92,11 +92,11 @@ generated as output.
 
 <b>Input data cluster representation</b>
 
-![alt text](https://github.com/aayush-jain18/synthetic-data-generation.git)
+![Original Cluster](https://raw.githubusercontent.com/aayush-jain18/synthetic-data-generation/master/tests/reports/cluster.png?token=AKN6UVS2Q2QUOURQE7NR46C45QEHS)
 
 <b>Synthetic Data Generated output cluster representation</b>
 
-![Synthetic cluster](https://github.com/aayush-jain18/synthetic-data-generation.git)
+![Synthetic Cluster](https://raw.githubusercontent.com/aayush-jain18/synthetic-data-generation/master/tests/reports/synth_cluster.png?token=AKN6UVVLHI54R55AZ533NY245QENI)
 
 ## Built With
 
