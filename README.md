@@ -47,7 +47,7 @@ stated in [requirements.txt](requirements.txt)
   - Change the input and output path for results as required in config.yaml
   - Run the framework from parent directory using below command
   ```
-  python synthetic-data-generation\main.py
+  python synthetic_data_generation -c config.yaml 
   ```
   - Deactivate the virtualenv once test is completed.
   ```
@@ -61,10 +61,7 @@ config.yaml, [config.yaml](https://github.com/aayush-jain18/synthetic-data-gener
 can be passed to the process from main.py
 
 ```python
-if __name__ == '__main__':
-    START = datetime.now()
-    # TODO: Update below config path to load the desired the test config
-    CONFIG = load_objects_file(path.abspath('.\\tests\\config.yaml'))
+python synthetic_data_generation -c tests\config.yaml
 ```
 
 **Please use [config.yaml](https://github.com/aayush-jain18/synthetic-data-generation.git) 
