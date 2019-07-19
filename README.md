@@ -6,15 +6,6 @@ deriving statistical characteristics from the prod DB and then generating
 synthetic data that encapsulates similar statistical properties and maintains 
 same referential integrity and correlation co-coefficients.
 
-## Main Features
-Here are just a few of the things that Synthetic Data Generation tool does well:
-
-  - Easy handling of Input data, supports multiple input formats such as
-    delimited separated files, database connections, excels.
-  - Oversamples the Input Data using SMOTENC.
-  - Generates and draws a statistics relation for input data and output data.
-    for comparison of synthetic data vs input data
-
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your 
