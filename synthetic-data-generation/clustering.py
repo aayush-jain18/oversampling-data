@@ -40,19 +40,6 @@ def kmeans_cluster(df,
     # FIXME: parametrize this input
     logging.info(f'using {independent_columns} columns to transform cluster.')
     X = df[independent_columns].values
-
-    # Highlight: In case need to get a elbow graph to determine
-    #  the number of clusters
-    wcss = []
-    for i in range(1, 11):
-        kmeans = KMeans(n_clusters=i, init='k-means++', random_state=42)
-        kmeans.fit(X)
-        wcss.append(kmeans.inertia_)
-    logging.info(f'Elbow curve for cluster: {wcss}')
-    # plt.plot(range(1, 11), wcss)
-    # plt.title('The Elbow Method')
-    # plt.xlabel('Number of clusters')
-    # plt.ylabel('WCSS')
     logging.info(f'{n_clusters} number of clusters to form as well as the '
                  'number of centroids to generate ')
     kmeans = KMeans(n_clusters, init='k-means++', random_state=random_state)
@@ -72,28 +59,3 @@ def kmeans_cluster(df,
     df['cluster'] = pd.DataFrame(y_kmeans)
     kmeans_mean_cluster = pd.DataFrame(df.groupby('cluster').mean())
     logging.info(f'Cluster info:\n{kmeans_mean_cluster}')
-
-    # FIXME: hierarchical-clustering is crashing the laptop :(
-    # # Dendrograms to identify the number of clusters to make
-    # plt.figure(figsize=(10, 7))
-    # plt.title("Dendrogram")
-    # dend = shc.dendrogram(shc.linkage(data, method='ward'))
-    # plt.savefig(output_dendo)
-    # cluster = AgglomerativeClustering(n_clusters=5,
-    #                                    affinity='euclidean',
-    #                                    linkage='ward')
-    # cluster.fit_predict(X)
-    # dendrogram(
-    #     H_cluster,
-    #     truncate_mode='lastp',  # show only the last p merged clusters
-    #     p=5,  # show only the last p merged clusters
-    #     leaf_rotation=90.,
-    #     leaf_font_size=12.,
-    #     show_contracted=True,  # to get a distribution impression
-    #     in truncated branches
-    # )
-    #
-    # plt.figure(figsize=(10, 7))
-    # plt.title("Data Clusters")
-    # plt.scatter(data[:, 1], data[:, 0], c=cluster.labels_, cmap='rainbow')
-    # plt.savefig(output_cluster)
