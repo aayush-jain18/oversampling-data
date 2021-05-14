@@ -34,7 +34,7 @@ pyparsing==2.4.0
 pytest==4.5.0
 python-dateutil==2.8.0
 pytz==2019.1
-PyYAML==4.2b2
+PyYAML==5.4
 requirements-detector==0.6
 scikit-learn==0.21.0
 scipy==1.2.1
