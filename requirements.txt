@@ -8,7 +8,7 @@ et-xmlfile==1.0.1
 imbalanced-learn==0.4.3
 isort==4.3.19
 jdcal==1.4.1
-joblib==0.13.2
+joblib==1.2.0
 kiwisolver==1.1.0
 lazy-object-proxy==1.4.1
 matplotlib==3.0.3
